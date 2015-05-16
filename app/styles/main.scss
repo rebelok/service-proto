@@ -92,7 +92,7 @@ body {
   }
 }
 
-.wrapper{
+.wrapper {
   height: 1024px;
   width: 1024px;
   margin: auto;
@@ -111,18 +111,19 @@ body {
   background-size: cover;
   background-image: url('../images/main_page_search.png');
 }
+
 .search-bar {
-  top:2px;
+  top: 2px;
   left: 121px;
   position: absolute;
   height: 57px;
   font-size: 22px;
   font-weight: 100;
   width: 727px;
-  z-index:1;
+  z-index: 1;
 }
 
-.search-input{
+.search-input {
   border: none;
   width: 100%;
   height: 100%;
@@ -138,7 +139,7 @@ body {
   cursor: pointer;
 }
 
-.how-it-works{
+.how-it-works {
   position: absolute;
   bottom: 45px;
   left: 400px;
@@ -176,22 +177,24 @@ body {
 
 .button.active {
   font-weight: bold;
-  border: solid 1px #AAA ;
+  border: solid 1px #AAA;
   border-radius: 10px;
 }
 
-.button a{
+.button a {
   cursor: pointer;
   color: #000;
 }
-.suggestion-box-wrapper{
+
+.suggestion-box-wrapper {
   width: 797px;
   position: absolute;
   top: 64px;
   left: -3px;
 
 }
-.suggestion-box{
+
+.suggestion-box {
   background: #fff;
   border: 1px solid #444;
   padding: 9px 16px;
@@ -200,7 +203,7 @@ body {
 .suggestion-list, .suggestion-big-list {
   list-style: none;
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
 .suggestion-lit__header {
@@ -212,7 +215,7 @@ body {
 
 .suggestion-big-item {
   display: flex;
-  padding:0 0 10px;
+  padding: 0 0 10px;
 }
 
 .suggestion-item {
@@ -222,12 +225,11 @@ body {
   cursor: pointer;
 }
 
-.suggestion-item_hovered{
+.suggestion-item_hovered {
   background-color: #ddd;
 }
 
-
-.search-wrapper{
+.search-wrapper {
   width: 1280px;
   position: absolute;
   left: auto;
@@ -261,10 +263,10 @@ body {
 
 .search-results {
   width: 1074px;
-  left:0;
-  right:0;
-  margin-left:auto;
-  margin-right:auto;;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;;
 }
 
 .olegon-card {

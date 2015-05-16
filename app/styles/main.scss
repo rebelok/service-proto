@@ -281,3 +281,31 @@ body {
   color: #000;
   cursor: pointer;
 }
+
+.olegon-popup {
+  background-image: url('../images/popup-olegon.png');
+  background-size: cover;
+  width: 850px;
+  height: 503px;
+  position: relative;
+}
+
+.modal-dialog {
+  width: 883px;
+}
+
+.modal-content {
+  padding: 40px 15px 15px 15px;
+}
+
+.modal-content .close {
+  margin-top: -28px;
+}
+
+.show-full-profile {
+  position: absolute;
+  width: 185px;
+  height: 25px;
+  right: 282px;
+  top: 1px;
+}

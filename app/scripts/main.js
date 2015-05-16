@@ -37,6 +37,7 @@ $(
       suggestionList,
       $wrapper = $('.suggestion-box-wrapper');
 
+  $('.js-btn-services').click(function(){$('.main-body').addClass('main-body-text')});
 
   var $searchInput = $('.search-input');
   $searchInput.on('keyup change', processSearch);

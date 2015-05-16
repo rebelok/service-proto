@@ -149,9 +149,23 @@ body {
 }
 
 .main-body {
-  background-image: url('../images/main_page_popular_services.png');
-  height: 1199px;
-  background-size: cover;
+  background-image: url('../images/main_page_popular_services.jpeg');
+  background-size: contain;
+  height: 680px;
+  background-repeat: no-repeat;
+}
+.main-body-text {
+  background-image: url('../images/main_page_services.png');
+  background-size: contain;
+  height: 680px;
+  background-repeat: no-repeat;
+}
+.main-footer {
+  background-image: url('../images/main_page_footer.png');
+  background-size: contain;
+  height: 523px;
+  background-repeat: no-repeat;
+
 }
 
 .service-menu {

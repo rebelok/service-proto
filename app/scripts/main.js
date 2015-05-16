@@ -32,55 +32,31 @@
  })
  * */
 $(
-(function App() {
-  var log = console.log.bind(console, 'App: '),
-      suggestionList,
-      $wrapper = $('.suggestion-box-wrapper');
+  (function App() {
+    var log = console.log.bind(console, 'App: '),
+        suggestionList,
+        $wrapper = $('.suggestion-box-wrapper');
 
-  $('.js-btn-services').click(function(){
-    $('.main-body').addClass('main-body-text');
-    $('.js-btn-services').addClass('active');
-    $('.js-btn-popular').removeClass('active');
-  });
+    initEvents();
 
-  $('.js-btn-popular').click(function(){
-    $('.main-body').removeClass('main-body-text');
-    $('.js-btn-services').removeClass('active');
-    $('.js-btn-popular').addClass('active');
-  });
+    function createBox(suggestion) {
 
-  var $searchInput = $('.search-input');
-  $searchInput.on('keyup change', processSearch);
-
-  function processSearch(event) {
-    log(event);
-    suggestionList = window.searcher.check(event.target.value);
-    log('suggestionList =', suggestionList);
-    createBox(suggestionList);
-
-    if(event.keyCode === 13){
-      window.location.href = "search.html";
+      var $box = $('<div class="suggestion-box"></div>');
+      $wrapper.empty();
+      if (!suggestion || !suggestion.length)return;
+      switch (suggestion.type) {
+        case 1:
+          $box.append(createBigUl(suggestion)).appendTo($wrapper);
+          break;
+        case 2:
+          $box.append(createUl(suggestion)).appendTo($wrapper);
+          break;
+        case 3:
+          $box.append($('<span class="suggestions-header">' + suggestion.title + '</span>')).append(createBigUl(suggestion)).appendTo($wrapper);
+          break;
+      }
     }
-  }
 
-
-  function removeHovered() {
-    $wrapper.find('.suggestion-item').removeClass('suggestion-item_hovered');
-  }
-
-  $wrapper.on('mouseenter', '.suggestion-item', function (event) {
-    removeHovered();
-    $(event.currentTarget).addClass('suggestion-item_hovered');
-  });
-
-
-  $wrapper.on('click', '.suggestion-item', function (event) {
-    $searchInput.val($searchInput.val() + ' ' + $(event.currentTarget).text());
-    $searchInput.change();
-  });
-
-
-  function createBox(list) {
     function createUl(array) {
       var $ul = $('<ul class="suggestion-list"></ul>');
       $ul.append(array.reduce(
@@ -103,33 +79,49 @@ $(
       return result;
     }
 
-    var $box = $('<div class="suggestion-box"></div>');
-    if (!list)return;
-    switch (list.type) {
-      case 1:
+    function initEvents() {
+      $('.js-btn-services').click(function () {
+        $('.main-body').addClass('main-body-text');
+        $('.js-btn-services').addClass('active');
+        $('.js-btn-popular').removeClass('active');
+      });
 
-        $wrapper.empty();
-        $box.append(createBigUl(list)).appendTo($wrapper);
+      $('.js-btn-popular').click(function () {
+        $('.main-body').removeClass('main-body-text');
+        $('.js-btn-services').removeClass('active');
+        $('.js-btn-popular').addClass('active');
+      });
 
-        break;
-      case 2:
+      var $searchInput = $('.search-input');
+      $searchInput.on('keyup change', processSearch);
 
-        $wrapper.empty();
-        $box.append(createUl(list)).appendTo($wrapper);
-        break;
-      case 3:
-        $wrapper.empty();
-        $box.append(
-          $('<span class="suggestions-header">' + list.title + '</span>')
-        ).append(
-          createBigUl(list)
-        ).appendTo($wrapper);
+      $wrapper.on('mouseenter', '.suggestion-item', function (event) {
+        removeHovered();
+        $(event.currentTarget).addClass('suggestion-item_hovered');
+      });
 
-        break;
+      $wrapper.on('click', '.suggestion-item', function (event) {
+        $searchInput.val($searchInput.val() + ' ' + $(event.currentTarget).text());
+        $searchInput.change();
+      });
+    }
+    
+    function processSearch(event) {
+      log(event);
+      suggestionList = window.searcher.check(event.target.value);
+      log('suggestionList =', suggestionList);
+      createBox(suggestionList);
+
+      if (event.keyCode === 13) {
+        window.location.href = "search.html";
+      }
     }
 
-  }
-})());
+    function removeHovered() {
+      $wrapper.find('.suggestion-item').removeClass('suggestion-item_hovered');
+    }
+
+  })());
 
 
 

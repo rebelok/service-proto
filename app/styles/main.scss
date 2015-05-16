@@ -212,7 +212,20 @@ body {
 
 .suggestion-big-item {
   display: flex;
+  padding:0 0 10px;
 }
+
+.suggestion-item {
+  border-radius: 8px;
+  padding: 0 8px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.suggestion-item_hovered{
+  background-color: #ddd;
+}
+
 
 .search-wrapper{
   width: 1280px;

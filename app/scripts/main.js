@@ -31,20 +31,40 @@ console.log('store is ' + (store.enabled ? 'enabled' : 'disabled'));
  console.log(key, '==', val)
  })
  * */
-
+$(
 (function App() {
-  var log = console.log.bind(console, 'App: ');
-  var suggestionList;
+  var log = console.log.bind(console, 'App: '),
+      suggestionList,
+      $wrapper = $('.suggestion-box-wrapper');
 
-  var searchInput = $('.search-input');
-  searchInput.on('keyup change', processSearch);
-  log(searchInput);
+
+  var $searchInput = $('.search-input');
+  $searchInput.on('keyup change', processSearch);
+
   function processSearch(event) {
     log(event);
     suggestionList = window.searcher.check(event.target.value);
     log('suggestionList =', suggestionList);
     createBox(suggestionList);
   }
+
+
+  function removeHovered() {
+    $wrapper.find('.suggestion-item').removeClass('suggestion-item_hovered');
+  }
+
+  $wrapper.on('mouseenter', '.suggestion-item', function (event) {
+    removeHovered();
+    $(event.currentTarget).addClass('suggestion-item_hovered');
+  });
+
+
+  $wrapper.on('click', '.suggestion-item', function (event) {
+    log('click');
+    $searchInput.val($searchInput.val() + ' ' + $(event.currentTarget).text());
+    $searchInput.change();
+  });
+
 
   function createBox(list) {
     function createUl(array) {
@@ -69,8 +89,7 @@ console.log('store is ' + (store.enabled ? 'enabled' : 'disabled'));
       return result;
     }
 
-    var $box = $('<div class="suggestion-box"></div>'),
-        $wrapper = $('.suggestion-box-wrapper');
+    var $box = $('<div class="suggestion-box"></div>');
     if (!list)return;
     switch (list.type) {
       case 1:
@@ -96,7 +115,7 @@ console.log('store is ' + (store.enabled ? 'enabled' : 'disabled'));
     }
 
   }
-})();
+})());
 
 
 

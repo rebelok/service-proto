@@ -4,7 +4,7 @@
 
 'use strict';
 
-(function Search() {
+(function Search(exports) {
 
   var placeTerms = ['магазин', 'супермаркет', 'универсам'],
       timeTerms = ['сегодня', ' завтра'],
@@ -33,6 +33,7 @@
       log = console.log.bind(console, 'Search: ');
 
   function check(searchTerm) {
+    if (!searchTerm)return;
     searchTerm = searchTerm.toLowerCase();
     log('searchTerm =', searchTerm);
     function checkTerms(terms) {
@@ -68,6 +69,7 @@
       if (!objectSelected) {
         suggestions.push(suggectionsList.object);
       }
+      suggestions.type = 1;
     } else {
       var allTerms, suggectionTerms, filtered;
 
@@ -85,16 +87,18 @@
       log('suggectionTerms =', suggectionTerms);
 
       if (suggectionTerms.length > 1) {
-        suggestions.push(suggectionTerms);
+        suggestions = suggectionTerms;
+        suggestions.type = 2;
       }
 
       if (suggectionTerms.length === 1) {
         suggestions = check(suggectionTerms[0]);
         suggestions.title = suggectionTerms[0];
+        suggestions.type = 3;
       }
     }
     return suggestions;
   }
 
-  return {check: check};
-})();
+  exports.searcher = {check: check};
+})(window);

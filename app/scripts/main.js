@@ -32,7 +32,71 @@ console.log('store is ' + (store.enabled ? 'enabled' : 'disabled'));
  })
  * */
 
+(function App() {
+  var log = console.log.bind(console, 'App: ');
+  var suggestionList;
 
+  var searchInput = $('.search-input');
+  searchInput.on('keyup change', processSearch);
+  log(searchInput);
+  function processSearch(event) {
+    log(event);
+    suggestionList = window.searcher.check(event.target.value);
+    log('suggestionList =', suggestionList);
+    createBox(suggestionList);
+  }
+
+  function createBox(list) {
+    function createUl(array) {
+      var $ul = $('<ul class="suggestion-list"></ul>');
+      $ul.append(array.reduce(
+          function createListItems(prev, curr) {
+            return prev + '<li class="suggestion-item">' + curr + '</li>';
+          }, '')
+      );
+      return $ul;
+    }
+
+    function createBigUl(array) {
+      var $bigUl = $('<ul class="suggestion-big-list"></ul>');
+      var result = array.reduce(
+        function createListWithTitle(prev, curr) {
+          var $li = $('<li class="suggestion-big-item"></li>');
+          var $span = '<span class="suggestion-lit__header">' + curr.title + '</span>';
+          return prev.append($li.append($span), $li.append(createUl(curr.list)));
+        },
+        $bigUl);
+      return result;
+    }
+
+    var $box = $('<div class="suggestion-box"></div>'),
+        $wrapper = $('.suggestion-box-wrapper');
+    if (!list)return;
+    switch (list.type) {
+      case 1:
+
+        $wrapper.empty();
+        $box.append(createBigUl(list)).appendTo($wrapper);
+
+        break;
+      case 2:
+
+        $wrapper.empty();
+        $box.append(createUl(list)).appendTo($wrapper);
+        break;
+      case 3:
+        $wrapper.empty();
+        $box.append(
+          $('<span class="suggestions-header">' + list.title + '</span>')
+        ).append(
+          createBigUl(list)
+        ).appendTo($wrapper);
+
+        break;
+    }
+
+  }
+})();
 
 
 

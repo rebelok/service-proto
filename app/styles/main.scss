@@ -119,6 +119,7 @@ body {
   font-size: 22px;
   font-weight: 100;
   width: 727px;
+  z-index:1;
 }
 
 .search-input{
@@ -183,21 +184,34 @@ body {
   cursor: pointer;
   color: #000;
 }
-
-.suggestion-box{
+.suggestion-box-wrapper{
   width: 797px;
-  background: white;
   position: absolute;
   top: 64px;
-  border: 1px solid #444;
   left: -3px;
+
+}
+.suggestion-box{
+  background: #fff;
+  border: 1px solid #444;
   padding: 9px 16px;
 }
 
-.suggestion-list {
+.suggestion-list, .suggestion-big-list {
   list-style: none;
   margin: 0;
   padding:0;
+}
+
+.suggestion-lit__header {
+  flex: 0 0 170px;
+  text-align: right;
+  padding: 0 10px;
+  color: #666;
+}
+
+.suggestion-big-item {
+  display: flex;
 }
 
 .search-wrapper{

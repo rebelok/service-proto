@@ -37,6 +37,10 @@ $(
       suggestionList,
       $wrapper = $('.suggestion-box-wrapper');
 
+  $('.js-btn-services').click(function(){
+    $('.main-body').addClass('main-body-text');
+
+  });
 
   var $searchInput = $('.search-input');
   $searchInput.on('keyup change', processSearch);
@@ -64,7 +68,6 @@ $(
 
 
   $wrapper.on('click', '.suggestion-item', function (event) {
-    log('click');
     $searchInput.val($searchInput.val() + ' ' + $(event.currentTarget).text());
     $searchInput.change();
   });

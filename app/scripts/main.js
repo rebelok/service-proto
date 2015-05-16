@@ -46,6 +46,10 @@ $(
     suggestionList = window.searcher.check(event.target.value);
     log('suggestionList =', suggestionList);
     createBox(suggestionList);
+
+    if(event.keyCode === 13){
+      window.location.href = "search.html";
+    }
   }
 
 

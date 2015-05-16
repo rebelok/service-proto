@@ -14,6 +14,7 @@ $icon-font-path: '../fonts/';
 /* Space out content a bit */
 body {
   padding-bottom: 20px;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -93,9 +94,8 @@ body {
 
 .wrapper{
   height: 1024px;
-  position: absolute;
-  left: 10%;
-  right: 10%;
+  width: 1024px;
+  margin: auto;
 }
 
 .header-top {
@@ -117,12 +117,11 @@ body {
   position: absolute;
   height: 57px;
   font-size: 22px;
-  font-style: italic;
   font-weight: 100;
   width: 727px;
 }
 
-.search-bar input {
+.search-input{
   border: none;
   width: 100%;
   height: 100%;
@@ -183,6 +182,22 @@ body {
 .button a{
   cursor: pointer;
   color: #000;
+}
+
+.suggestion-box{
+  width: 797px;
+  background: white;
+  position: absolute;
+  top: 64px;
+  border: 1px solid #444;
+  left: -3px;
+  padding: 9px 16px;
+}
+
+.suggestion-list {
+  list-style: none;
+  margin: 0;
+  padding:0;
 }
 
 .search-wrapper{

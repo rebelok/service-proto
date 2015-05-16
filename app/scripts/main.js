@@ -1,7 +1,7 @@
 /* jshint devel:true */
 'use strict';
 /* global store */
-console.log('store is ' + (store.enabled ? 'enabled' : 'disabled'));
+//console.log('store is ' + (store.enabled ? 'enabled' : 'disabled'));
 
 /* STORE API
  * // Store 'marcus' at 'username'

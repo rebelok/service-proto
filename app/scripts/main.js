@@ -1,6 +1,5 @@
 /* jshint devel:true */
 'use strict';
-/* global store */
 //console.log('store is ' + (store.enabled ? 'enabled' : 'disabled'));
 
 /* STORE API
@@ -37,13 +36,18 @@ $(
         suggestionList,
         $wrapper = $('.suggestion-box-wrapper');
 
+    /*jshint latedef: nofunc */
     initEvents();
 
     function createBox(suggestion) {
 
       var $box = $('<div class="suggestion-box"></div>');
       $wrapper.empty();
-      if (!suggestion || !suggestion.length)return;
+
+      if (!suggestion || !suggestion.length){
+        return;
+      }
+
       switch (suggestion.type) {
         case 1:
           $box.append(createBigUl(suggestion)).appendTo($wrapper);
@@ -105,7 +109,7 @@ $(
         $searchInput.change();
       });
     }
-    
+
     function processSearch(event) {
       log(event);
       suggestionList = window.searcher.check(event.target.value);
@@ -113,7 +117,7 @@ $(
       createBox(suggestionList);
 
       if (event.keyCode === 13) {
-        window.location.href = "search.html";
+        window.location.href = 'search.html';
       }
     }
 

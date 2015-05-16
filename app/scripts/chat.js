@@ -1,7 +1,7 @@
 /**
  * Created by rebel on 5/17/15.
  */
-
+'use strict';
 
 $((function(){
 $('.send-request').click(function(e){

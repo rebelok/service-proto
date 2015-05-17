@@ -7,8 +7,8 @@
 (function Search(exports) {
 
   var placeTerms = ['магазин', 'супермаркет', 'универсам'],
-      timeTerms = ['сегодня', ' завтра'],
-      actionTerms = ['привезти', 'доставить', 'доставк', 'принести', 'купить'],
+      timeTerms = ['сегодня'],
+      actionTerms = ['привезти', 'доставить', 'доставк', 'принести'],
       objectTerms = ['молоко', 'молока'],
 
       suggectionsList = {

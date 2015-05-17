@@ -31,6 +31,18 @@
 function initEvents(){
   var $searchInput = $('.search-input');
   $searchInput.on('keyup change', processSearch);
+
+  $('.js-btn-services').click(function () {
+    $('.main-body').addClass('main-body-text');
+    $('.js-btn-services').addClass('active');
+    $('.js-btn-popular').removeClass('active');
+  });
+
+  $('.js-btn-popular').click(function () {
+    $('.main-body').removeClass('main-body-text');
+    $('.js-btn-services').removeClass('active');
+    $('.js-btn-popular').addClass('active');
+  });
 }
 
   function init(){

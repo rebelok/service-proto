@@ -331,19 +331,28 @@ body {
 }
 
 .modal-content {
-  padding: 40px 15px 15px 15px;
+  padding: 10px;
 }
 
 .modal-content .close {
-  margin-top: -28px;
+  margin-top: -12px;
+  margin-right: -42px;
+  opacity: 0.7;
+}
+
+.modal-content .button-content {
+  color: #fff;
+  text-shadow: none;
+  font-size: 30px;
+  font-weight: 100;
 }
 
 .show-full-profile {
   position: absolute;
-  width: 185px;
-  height: 25px;
-  right: 282px;
-  top: 1px;
+  width: 157px;
+  height: 46px;
+  right: 16px;
+  bottom: 9px;
 }
 
 .olegon-wrapper {

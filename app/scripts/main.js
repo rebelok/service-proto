@@ -44,7 +44,7 @@ $(
       var $box = $('<div class="suggestion-box"></div>');
       $wrapper.empty();
 
-      if (!suggestion || !suggestion.length){
+      if (!suggestion || !suggestion.length) {
         return;
       }
 
@@ -104,7 +104,7 @@ $(
         $(event.currentTarget).addClass('item_hovered');
       });
 
-      $wrapper.on('click','.suggestions-header',function(event){
+      $wrapper.on('click', '.suggestions-header', function (event) {
         $searchInput.val($(event.currentTarget).text() + ' ');
         $searchInput.change();
       });

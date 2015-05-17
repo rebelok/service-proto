@@ -1,0 +1,1 @@
+"use strict";var app=function(){function n(){var n=console.log.bind(console,"App: "),t=$(".search-input"),i=$(".filter-wrapper");t.on("keyup change",function(){var o=t.val(),e=o.trim();e.length&&(e.split(" ").length>1||" "===o[o.length-1])?(i.addClass("shown"),n("show")):i.removeClass("shown")})}function t(){n()}return{init:t}}();$(function(){app.init()});

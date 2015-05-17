@@ -132,6 +132,12 @@ body {
   height: 289px;
   width: 793px;
   z-index: 1;
+  transition: 0.5s;
+
+}
+.can-hide{max-height: 0;}
+.shown{
+  max-height: 999px;
 }
 
 .search-input {

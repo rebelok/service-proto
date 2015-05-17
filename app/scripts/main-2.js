@@ -9,7 +9,7 @@ var app = (function App() {
         search = $('.search-input'),
         filter = $('.filter-wrapper');
 
-    search.on('keyup change', function () {
+    search.on('keyup change', function (event) {
       var value = search.val();
       var trimmed = value.trim();
       if (trimmed.length && (trimmed.split(' ').length > 1 || value[value.length - 1] === ' ')) {
@@ -17,6 +17,11 @@ var app = (function App() {
         log('show');
       } else {
         filter.removeClass('shown');
+      }
+      store.set('search',trimmed);
+
+      if (event.keyCode === 13) {
+        window.location.href = 'search.html';
       }
     });
   }

@@ -40,6 +40,11 @@
     anySelected = placeSelected.length || timeSelected.length || actionSelected.length || objectSelected.length;
 log('anySelected',anySelected, 'placeSelected',placeSelected,'timeSelected',timeSelected ,'actionSelected',actionSelected ,'objectSelected',objectSelected);
     if (anySelected) {
+
+      if(actionSelected.length && actionSelected[0] === actionTerms[2]){
+        actionSelected = actionTerms[1];
+      }
+
       if (placeSelected.length) {
         if (objectSelected.length) {
           return 'Необходимо купить и доставить два пакета <b><u>молока</u></b> из <b><u>' + placeSelected + '</u></b>а Азбука Вкуса у метро Динамо';

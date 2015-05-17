@@ -217,10 +217,10 @@ body {
   padding: 0;
 }
 
-.suggestion-lit__header {
+.suggestion-list__header {
   flex: 0 0 170px;
   text-align: right;
-  padding: 0 10px;
+  padding: 5px 10px;
   color: #666;
 }
 
@@ -229,14 +229,14 @@ body {
   padding: 0 0 10px;
 }
 
-.suggestion-item {
+.suggestions-header, .suggestion-item {
   border-radius: 8px;
   padding: 0 8px;
   margin: 5px;
   cursor: pointer;
 }
 
-.suggestion-item_hovered {
+.item_hovered {
   background-color: #ddd;
 }
 

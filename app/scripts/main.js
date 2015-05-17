@@ -56,7 +56,7 @@ $(
           $box.append(createUl(suggestion)).appendTo($wrapper);
           break;
         case 3:
-          $box.append($('<span class="suggestions-header">' + suggestion.title + '</span>')).append(createBigUl(suggestion)).appendTo($wrapper);
+          $box.append($('<span class="suggestions-header js-can-hover">' + suggestion.title + '</span>')).append(createBigUl(suggestion)).appendTo($wrapper);
           break;
       }
     }
@@ -65,7 +65,7 @@ $(
       var $ul = $('<ul class="suggestion-list"></ul>');
       $ul.append(array.reduce(
           function createListItems(prev, curr) {
-            return prev + '<li class="suggestion-item">' + curr + '</li>';
+            return prev + '<li class="suggestion-item js-can-hover">' + curr + '</li>';
           }, '')
       );
       return $ul;
@@ -76,7 +76,7 @@ $(
       var result = array.reduce(
         function createListWithTitle(prev, curr) {
           var $li = $('<li class="suggestion-big-item"></li>');
-          var $span = '<span class="suggestion-lit__header">' + curr.title + '</span>';
+          var $span = '<span class="suggestion-list__header">' + curr.title + '</span>';
           return prev.append($li.append($span), $li.append(createUl(curr.list)));
         },
         $bigUl);
@@ -99,13 +99,18 @@ $(
       var $searchInput = $('.search-input');
       $searchInput.on('keyup change', processSearch);
 
-      $wrapper.on('mouseenter', '.suggestion-item', function (event) {
+      $wrapper.on('mouseenter', '.js-can-hover', function (event) {
         removeHovered();
-        $(event.currentTarget).addClass('suggestion-item_hovered');
+        $(event.currentTarget).addClass('item_hovered');
       });
 
+      $wrapper.on('click','.suggestions-header',function(event){
+        $searchInput.val($(event.currentTarget).text() + ' ');
+        $searchInput.change();
+      });
+      
       $wrapper.on('click', '.suggestion-item', function (event) {
-        $searchInput.val($searchInput.val() + ' ' + $(event.currentTarget).text());
+        $searchInput.val($searchInput.val() + ' ' + $(event.currentTarget).text() + ' ');
         $searchInput.change();
       });
     }
@@ -122,7 +127,7 @@ $(
     }
 
     function removeHovered() {
-      $wrapper.find('.suggestion-item').removeClass('suggestion-item_hovered');
+      $wrapper.find('.js-can-hover').removeClass('item_hovered');
     }
 
   })());

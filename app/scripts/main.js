@@ -135,10 +135,10 @@ var app = (function App() {
     $wrapper.find('.js-can-hover').removeClass('item_hovered');
   }
 
-  return {init: init}
+  return {init: init };
 })();
 $(function() {
-  app.init()
+  app.init();
 });
 
 

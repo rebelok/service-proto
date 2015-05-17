@@ -1,7 +1,7 @@
 /**
  * Created by rebel on 5/17/15.
  */
-
+'use strict';
 
 
   var app = (function App() {
@@ -19,6 +19,7 @@
       $hint.empty();
       $hint.html('<div class="hint">'+suggestion+'</div>');
 
+      /* global store */
       store.set('search', searchTerm);
     }
 
@@ -41,8 +42,8 @@ function initEvents(){
 
 $(function(){
 app.init();
-  if(chat){
-    chat.init();
+  if(window.chat){
+    window.chat.init();
   }
 });
 

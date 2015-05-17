@@ -1,6 +1,8 @@
 /**
  * Created by rebel on 5/17/15.
  */
+
+'use strict';
 (function Search(exports) {
 
   var placeTerms = ['магазин', 'супермаркет', 'универсам'],
@@ -8,25 +10,6 @@
       actionTerms = ['привезти', 'доставить', 'доставк', 'принести'],
       objectTerms = ['молоко', 'молока'],
 
-      suggectionsList = {
-        place : {
-          title: 'Откуда?',
-          list : ['Ближайшего магазина', 'Любого магазина']
-        },
-        time  : {
-          title: 'Когда?',
-          list : ['Сегодня', ' Завтра', '21 мая', '22 мая']
-        },
-        action: {
-          title: 'Что сделать?',
-          list : ['Привезти', 'Забрать', 'Купить']
-        },
-        object: {
-          title: 'Что именно?',
-          list : ['Фрукты', 'Молоко', 'Воду']
-        }
-
-      },
       log = console.log.bind(console, 'Search: ');
 
   function check(searchTerm) {

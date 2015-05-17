@@ -3,8 +3,8 @@
  */
 'use strict';
 
-var chat = (function Chat(){
-
+window.chat = (function Chat(){
+  /* global store */
 function initEvents(){
   $('.send-request').click(function(e){
     e.stopPropagation();

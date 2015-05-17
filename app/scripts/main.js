@@ -30,6 +30,8 @@
  console.log(key, '==', val)
  })
  * */
+
+/* global store */
 $(
   (function App() {
     var log = console.log.bind(console, 'App: '),
@@ -122,7 +124,7 @@ $(
       createBox(suggestionList);
 
       store.set('search', event.target.value);
-      
+
       if (event.keyCode === 13) {
         window.location.href = 'search.html';
       }

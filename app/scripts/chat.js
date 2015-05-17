@@ -2,7 +2,7 @@
  * Created by rebel on 5/17/15.
  */
 'use strict';
-
+/* global store */
 $((function(){
 $('.send-request').click(function(e){
   e.stopPropagation();

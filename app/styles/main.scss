@@ -83,7 +83,7 @@ body {
 
   /* Space out the masthead */
   .header {
-    margin-bottom: 45px;
+    margin-bottom: 37px;
   }
 
   /* Remove the bottom border on the jumbotron for visual effect */
@@ -99,27 +99,38 @@ body {
 }
 
 .header-top {
-  height: 297px;
+  height: 270px;
   background-image: url('../images/main_page_header.png');
   background-size: cover;
   position: relative;
 }
 
 .header-search {
-  height: 244px;
+  height: 220px;
   position: relative;
   background-size: cover;
   background-image: url('../images/main_page_search.png');
 }
 
 .search-bar {
-  top: 12px;
+  top: 11px;
   left: 121px;
   position: absolute;
-  height: 57px;
+  height: 95px;
   font-size: 22px;
   font-weight: 100;
-  width: 727px;
+  width: 791px;
+  z-index: 1;
+}
+
+.filter-wrapper {
+  background-image: url('../images/search_filter.png');
+  background-size: cover;
+  position: absolute;
+  bottom: -180px;
+  left: 121px;
+  height: 289px;
+  width: 793px;
   z-index: 1;
 }
 
@@ -132,11 +143,12 @@ body {
 
 .search-button {
   position: absolute;
-  top: 2px;
-  right: 112px;
-  width: 60px;
-  height: 57px;
+  top: 340px;
+  right: 133px;
+  width: 225px;
+  height: 40px;
   cursor: pointer;
+  z-index: 2;
 }
 
 .how-it-works {
@@ -168,6 +180,7 @@ body {
 .service-menu {
   padding: 0 20px;
   height: 50px;
+  margin-bottom: 16px;
 }
 
 .service-menu-content {
@@ -253,7 +266,8 @@ body {
   background-image: url('../images/search_res_people.png');
   background-size: cover;
   width: 100%;
-  height: 814px;
+  height: 986px;
+
 }
 
 .search-people {
@@ -265,25 +279,18 @@ body {
 }
 
 .search-olegon {
-  width: 240px;
-  height: 183px;
+  width: 325px;
+  height: 192px;
   background-size: cover;
-  top: 427px;
-  left: 8px;
+  top: 580px;
+  left: 17px;
   position: absolute;
   cursor: pointer;
 }
 
-.search-olegon:hover {
-  height: 376px;
-  left: 4px;
-  width: 248px;
-  background-image: url('../images/popup-olegon.png');
-}
-
 .search-bar-wrapper {
   position: absolute;
-  top: 154px;
+  top: 144px;
   height: 60px;
   width: 800px;
   left: 118px;
@@ -324,8 +331,8 @@ body {
 
 .send-request {
   position: absolute;
-  bottom: 34px;
-  left: 17px;
+  bottom: 13px;
+  left: 11px;
   width: 128px;
   height: 32px;
   cursor: pointer;
@@ -374,7 +381,7 @@ body {
   background-image: url('../images/olegon-profile.png');
   background-size: cover;
   width: 1024px;
-  height: 1050px;
+  height: 1066px;
   position: absolute;
   left: 0;
   right: 0;

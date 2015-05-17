@@ -108,7 +108,7 @@ $(
         $searchInput.val($(event.currentTarget).text() + ' ');
         $searchInput.change();
       });
-      
+
       $wrapper.on('click', '.suggestion-item', function (event) {
         $searchInput.val($searchInput.val() + ' ' + $(event.currentTarget).text() + ' ');
         $searchInput.change();
@@ -121,6 +121,8 @@ $(
       log('suggestionList =', suggestionList);
       createBox(suggestionList);
 
+      store.set('search', event.target.value);
+      
       if (event.keyCode === 13) {
         window.location.href = 'search.html';
       }

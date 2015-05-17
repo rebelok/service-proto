@@ -17,4 +17,8 @@ $('.send-request').click(function(e){
     $(e.currentTarget).toggleClass('chat_expanded');
   });
 
+
+  if(store.has('search')){
+    $('.search-input').val(store.get('search'));
+  }
 })());

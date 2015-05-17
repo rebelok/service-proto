@@ -61,45 +61,46 @@
     anySelected = placeSelected || timeSelected || actionSelected || objectSelected;
 
     if (anySelected) {
+      if (!actionSelected) {
+        suggestions.push(suggectionsList.action);
+      }
       if (!placeSelected) {
         suggestions.push(suggectionsList.place);
       }
       if (!timeSelected) {
         suggestions.push(suggectionsList.time);
       }
-      if (!actionSelected) {
-        suggestions.push(suggectionsList.action);
-      }
+
       if (!objectSelected) {
         suggestions.push(suggectionsList.object);
       }
       suggestions.type = 1;
-    } else {
-      var allTerms, suggectionTerms, filtered;
-
-      var filter = function filter(element) {
-        return element.indexOf(searchTerm) === 0;
-      };
-
-      allTerms = [placeTerms, timeTerms, actionTerms, [objectTerms[0]]];
-
-      suggectionTerms = allTerms.reduce(function (prev, curr) {
-        filtered = curr.filter(filter);
-        return prev.concat(filtered);
-      }, []);
-
-      log('suggectionTerms =', suggectionTerms);
-
-      if (suggectionTerms.length > 1) {
-        suggestions = suggectionTerms;
-        suggestions.type = 2;
-      }
-
-      if (suggectionTerms.length === 1) {
-        suggestions = check(suggectionTerms[0]);
-        suggestions.title = suggectionTerms[0];
-        suggestions.type = 3;
-      }
+    //} else {
+    //  var allTerms, suggectionTerms, filtered;
+    //
+    //  var filter = function filter(element) {
+    //    return element.indexOf(searchTerm) === 0;
+    //  };
+    //
+    //  allTerms = [placeTerms, timeTerms, actionTerms, [objectTerms[0]]];
+    //
+    //  suggectionTerms = allTerms.reduce(function (prev, curr) {
+    //    filtered = curr.filter(filter);
+    //    return prev.concat(filtered);
+    //  }, []);
+    //
+    //  log('suggectionTerms =', suggectionTerms);
+    //
+    //  if (suggectionTerms.length > 1) {
+    //    suggestions = suggectionTerms;
+    //    suggestions.type = 2;
+    //  }
+    //
+    //  if (suggectionTerms.length === 1) {
+    //    suggestions = check(suggectionTerms[0]);
+    //    suggestions.title = suggectionTerms[0];
+    //    suggestions.type = 3;
+    //  }
     }
     return suggestions;
   }

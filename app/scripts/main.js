@@ -115,6 +115,7 @@ var app = (function App() {
     $wrapper.on('mouseup', '.suggestion-item', function (event) {
       $searchInput.val($searchInput.val() + ' ' + $(event.currentTarget).text() + ' ');
       $searchInput.change();
+      $searchInput.focus();
     });
   }
 

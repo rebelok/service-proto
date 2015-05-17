@@ -7,9 +7,9 @@
 (function Search(exports) {
 
   var placeTerms = ['магазин', 'супермаркет', 'универсам'],
-      timeTerms = ['сегодня', ' завтра','21 мая', '22 мая'],
+      timeTerms = ['сегодня', 'завтра', '21 мая', '22 мая'],
       actionTerms = ['привезти', 'доставить', 'доставк', 'принести', 'купить'],
-      objectTerms = ['молоко', 'молока','фрукты', 'воду'],
+      objectTerms = ['молоко', 'молока', 'фрукты', 'воду'],
 
       suggectionsList = {
         place : {
@@ -34,7 +34,7 @@
 
   function check(searchTerm) {
 
-    if (!searchTerm){
+    if (!searchTerm) {
       return;
     }
 
@@ -61,46 +61,115 @@
     anySelected = placeSelected || timeSelected || actionSelected || objectSelected;
 
     if (anySelected) {
-      if (!actionSelected) {
+      suggestions.type = 1;
+      if (objectSelected) {
+        if (actionSelected) {
+          if (!placeSelected) {
+            suggestions.push(suggectionsList.place);
+          }
+          if (!timeSelected) {
+            suggestions.push(suggectionsList.time);
+          }
+          return suggestions;
+        }
+
+        if (timeSelected) {
+          if (!actionSelected) {
+            suggestions.push(suggectionsList.action);
+          }
+          return suggestions;
+        }
+
+        if (!actionSelected) {
+          suggestions.push(suggectionsList.action);
+        }
+        if (!timeSelected) {
+          suggestions.push(suggectionsList.time);
+        }
+        return suggestions;
+      }
+      if (actionSelected) {
+        if (placeSelected) {
+          if (!objectSelected) {
+            suggestions.push(suggectionsList.object);
+          }
+          if (!timeSelected) {
+            suggestions.push(suggectionsList.time);
+          }
+          return suggestions;
+        }
+
+        if (timeSelected) {
+          if (!objectSelected) {
+            suggestions.push(suggectionsList.object);
+          }
+          if (!placeSelected) {
+            suggestions.push(suggectionsList.place);
+          }
+          return suggestions;
+        }
+
+        if (!placeSelected) {
+          suggestions.push(suggectionsList.place);
+        }
+        if (!timeSelected) {
+          if (!timeSelected) {
+            suggestions.push(suggectionsList.time);
+          }
+        }
+        if (!objectSelected) {
+          suggestions.push(suggectionsList.object);
+        }
+        return suggestions;
+      }
+      if (placeSelected) {
+        if (timeSelected) {
+          if (!actionSelected) {
+            suggestions.push(suggectionsList.action);
+          }
+          return suggestions;
+        }
+
         suggestions.push(suggectionsList.action);
+        if (!timeSelected) {
+          if (!timeSelected) {
+            suggestions.push(suggectionsList.time);
+          }
+        }
+        return suggestions;
       }
-      if (!placeSelected) {
-        suggestions.push(suggectionsList.place);
-      }
-      if (!timeSelected) {
-        suggestions.push(suggectionsList.time);
+      if (timeSelected) {
+        if (!actionSelected) {
+          suggestions.push(suggectionsList.action);
+        }
       }
 
-      if (!objectSelected) {
-        suggestions.push(suggectionsList.object);
-      }
-      suggestions.type = 1;
-    //} else {
-    //  var allTerms, suggectionTerms, filtered;
-    //
-    //  var filter = function filter(element) {
-    //    return element.indexOf(searchTerm) === 0;
-    //  };
-    //
-    //  allTerms = [placeTerms, timeTerms, actionTerms, [objectTerms[0]]];
-    //
-    //  suggectionTerms = allTerms.reduce(function (prev, curr) {
-    //    filtered = curr.filter(filter);
-    //    return prev.concat(filtered);
-    //  }, []);
-    //
-    //  log('suggectionTerms =', suggectionTerms);
-    //
-    //  if (suggectionTerms.length > 1) {
-    //    suggestions = suggectionTerms;
-    //    suggestions.type = 2;
-    //  }
-    //
-    //  if (suggectionTerms.length === 1) {
-    //    suggestions = check(suggectionTerms[0]);
-    //    suggestions.title = suggectionTerms[0];
-    //    suggestions.type = 3;
-    //  }
+      //} else {
+      //  var allTerms, suggectionTerms, filtered;
+      //
+      //  var filter = function filter(element) {
+      //    return element.indexOf(searchTerm) === 0;
+      //  };
+      //
+      //  allTerms = [placeTerms, timeTerms, actionTerms, [objectTerms[0]]];
+      //
+      //  suggectionTerms = allTerms.reduce(function (prev, curr) {
+      //    filtered = curr.filter(filter);
+      //    return prev.concat(filtered);
+      //  }, []);
+      //
+      //  log('suggectionTerms =', suggectionTerms);
+      //
+      //  if (suggectionTerms.length > 1) {
+      //    suggestions = suggectionTerms;
+      //    suggestions.type = 2;
+      //  }
+      //
+      //  if (suggectionTerms.length === 1) {
+      //    suggestions = check(suggectionTerms[0]);
+      //    suggestions.title = suggectionTerms[0];
+      //    suggestions.type = 3;
+      //  }
     }
     return suggestions;
   }

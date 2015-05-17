@@ -33,7 +33,11 @@
       log = console.log.bind(console, 'Search: ');
 
   function check(searchTerm) {
-    if (!searchTerm)return;
+
+    if (!searchTerm){
+      return;
+    }
+
     searchTerm = searchTerm.toLowerCase();
     log('searchTerm =', searchTerm);
     function checkTerms(terms) {

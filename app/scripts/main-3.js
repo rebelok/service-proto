@@ -10,13 +10,16 @@
 
   function processSearch(event) {
     log(event);
-    var suggestion = window.searcher3.check(event.target.value);
+    var searchTerm = event.target.value;
+    var suggestion = window.searcher3.check(searchTerm);
     log('suggestion =', suggestion);
 
 
     if(suggestion){
       $hint.empty();
       $hint.html('<div class="hint">'+suggestion+'</div>');
+
+      store.set('search', searchTerm);
     }
 
     if (event.keyCode === 13) {
@@ -38,5 +41,8 @@ function initEvents(){
 
 $(function(){
 app.init();
+  if(chat){
+    chat.init();
+  }
 });
 

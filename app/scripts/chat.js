@@ -3,22 +3,26 @@
  */
 'use strict';
 /* global store */
-$((function(){
-$('.send-request').click(function(e){
-  e.stopPropagation();
 
-  if($('.chat').length === 0){
-    $('<div class="chat"></div>').appendTo($('body'));
+var chat = (function(){
+  function init() {
+    $('.send-request').click(function (e) {
+      e.stopPropagation();
+
+      if ($('.chat').length === 0) {
+        $('<div class="chat"></div>').appendTo($('body'));
+      }
+
+    });
+
+    $('body').on('click', '.chat', function (e) {
+      $(e.currentTarget).toggleClass('chat_expanded');
+    });
+
+    if (store.has('search')) {
+      $('.search-input').val(store.get('search'));
+    }
   }
-
-});
-
-  $('body').on('click','.chat',function(e){
-    $(e.currentTarget).toggleClass('chat_expanded');
-  });
-
-
-  if(store.has('search')){
-    $('.search-input').val(store.get('search'));
-  }
-})());
+  return {init:init};
+})();
+$(function(){chat.init();});

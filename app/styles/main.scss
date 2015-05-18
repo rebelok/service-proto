@@ -395,16 +395,16 @@ body {
   cursor:pointer;
   position: fixed;
   width: 300px;
-  height: 30px;
+  height: 39px;
   background-image: url('../images/chat_closed.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   bottom: 0;
   left: 130px;
   box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
 }
 .chat.chat_expanded{
-  height:386px;
+  height:383px;
   background-image: url('../images/chat_open.png');
 
 }

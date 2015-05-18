@@ -19,5 +19,9 @@ var app = (function App() {
 })();
 
 $(function () {
+  if(window.chat){
+    window.chat.init();
+  }
+
   app.init();
 });

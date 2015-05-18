@@ -5,9 +5,9 @@
 
 var app = (function App() {
   function initEvents() {
-    var log = console.log.bind(console, 'Search: '),
-        search = $('.search-input');
+    var search = $('.search-input');
 
+    /* global store */
     search.val(store.get('search'));
   }
 

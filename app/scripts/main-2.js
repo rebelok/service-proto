@@ -18,6 +18,8 @@ var app = (function App() {
       } else {
         filter.removeClass('shown');
       }
+
+      /* global store */
       store.set('search',trimmed);
 
       if (event.keyCode === 13) {

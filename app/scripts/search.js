@@ -109,17 +109,16 @@
           return suggestions;
         }
 
+        if (!objectSelected) {
+          suggestions.push(suggectionsList.object);
+        }
         if (!placeSelected) {
           suggestions.push(suggectionsList.place);
         }
         if (!timeSelected) {
-          if (!timeSelected) {
-            suggestions.push(suggectionsList.time);
-          }
+          suggestions.push(suggectionsList.time);
         }
-        if (!objectSelected) {
-          suggestions.push(suggectionsList.object);
-        }
+
         return suggestions;
       }
       if (placeSelected) {

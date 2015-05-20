@@ -7,6 +7,7 @@
   background-image: url('../images/search_suggestions.png');
   background-size: cover;
   opacity: 0.9;
+  transition: .5s;
 }
 .hint {
   color: #fff;
@@ -22,7 +23,6 @@
   margin-top: 5px;
   position: relative;
   display: inline-block;
-  transition: .5s;
 }
 
 .can-hide{max-height: 0;}

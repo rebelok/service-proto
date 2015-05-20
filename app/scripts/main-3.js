@@ -53,9 +53,9 @@ function initEvents(){
   })();
 
 $(function(){
-app.init();
   if(window.chat){
     window.chat.init();
   }
+app.init();
 });
 

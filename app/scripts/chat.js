@@ -11,6 +11,7 @@ function initEvents(){
 
     if($('.chat').length === 0){
       $('<div class="chat"></div>').appendTo($('body'));
+      $('.search-wrapper').addClass('chat-open');
     }
 
   });

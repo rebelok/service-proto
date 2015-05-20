@@ -1,13 +1,25 @@
 .hint-wrapper {
-  width: 785px;
+  width: 891px;
   position: absolute;
-  height: 70px;
-  bottom: 0;
-  left: 125px;
+  height: 90px;
+  bottom: 40px;
+  left: 78px;
+  background-image: url('../images/search_suggestions.png');
+  background-size: cover;
+  opacity: 0.9;
 }
 .hint {
   color: #fff;
   height: 70px;
   padding: 0 7px;
   font-size: 17px;
+}
+.hint-wrapper .label {
+  font-size: 18px;
+  font-style: italic;
+  padding-bottom: 10px;
+  font-weight: 100;
+  margin-top: 5px;
+  position: relative;
+  display: inline-block;
 }

@@ -3,19 +3,27 @@
  */
 'use strict';
 
-
-  var app = (function App() {
-    var log = console.log.bind(console, 'App: '),
-        $hint=$('.hint');
+var app = (function App() {
+  var log = console.log.bind(console, 'App: '),
+      $hint = $('.hint'),
+      $hintWrapper = $('.hint-wrapper');
 
   function processSearch(event) {
     log(event);
-    var searchTerm = event.target.value;
+    var searchTerm = event.target.value.trim();
+
+    if (searchTerm.length > 0) {
+      if (!$hintWrapper.hasClass('shown')) {
+        $hintWrapper.addClass('shown');
+      }
+    } else {
+      $hintWrapper.removeClass('shown');
+    }
+
     var suggestion = window.searcher3.check(searchTerm);
     log('suggestion =', suggestion);
 
-
-    if(suggestion){
+    if (suggestion) {
       $hint.empty();
       $hint.html(suggestion);
 
@@ -28,34 +36,34 @@
     }
   }
 
-function initEvents(){
-  var $searchInput = $('.search-input');
-  $searchInput.on('keyup change', processSearch);
+  function initEvents() {
+    var $searchInput = $('.search-input');
+    $searchInput.on('keyup change', processSearch);
 
-  $('.js-btn-services').click(function () {
-    $('.main-body').addClass('main-body-text');
-    $('.js-btn-services').addClass('active');
-    $('.js-btn-popular').removeClass('active');
-  });
+    $('.js-btn-services').click(function () {
+      $('.main-body').addClass('main-body-text');
+      $('.js-btn-services').addClass('active');
+      $('.js-btn-popular').removeClass('active');
+    });
 
-  $('.js-btn-popular').click(function () {
-    $('.main-body').removeClass('main-body-text');
-    $('.js-btn-services').removeClass('active');
-    $('.js-btn-popular').addClass('active');
-  });
-}
+    $('.js-btn-popular').click(function () {
+      $('.main-body').removeClass('main-body-text');
+      $('.js-btn-services').removeClass('active');
+      $('.js-btn-popular').addClass('active');
+    });
+  }
 
-  function init(){
+  function init() {
     initEvents();
   }
 
-  return {init:init};
-  })();
+  return {init: init};
+})();
 
-$(function(){
-  if(window.chat){
+$(function () {
+  if (window.chat) {
     window.chat.init();
   }
-app.init();
+  app.init();
 });
 

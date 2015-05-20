@@ -480,5 +480,9 @@ body {
 .added .chat.chat_expanded {
   background-image: url('../images/chat_with_two.png');
 }
+.added .chat {
+  background-image: url('../images/chat_closed_with_two.png');
+  width: 315px;
+}
 
 @import "concept-3";

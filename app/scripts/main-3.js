@@ -6,7 +6,7 @@
 
   var app = (function App() {
     var log = console.log.bind(console, 'App: '),
-        $hint=$('.hint-wrapper');
+        $hint=$('.hint');
 
   function processSearch(event) {
     log(event);
@@ -17,7 +17,7 @@
 
     if(suggestion){
       $hint.empty();
-      $hint.html('<div class="hint">'+suggestion+'</div>');
+      $hint.html(suggestion);
 
       /* global store */
       store.set('search', searchTerm);

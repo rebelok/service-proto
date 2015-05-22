@@ -33,6 +33,12 @@
       <textarea rows="2" class="search-details" placeholder="Уточните детали задания"></textarea>
     </div>
 
+    <div class="search-navigation">
+      <div class="tab-1" onclick="$('.search-wrapper').removeClass('select-1'); $('.search-wrapper').removeClass('select-2');"></div>
+      <div class="tab-2" onclick="$('.search-wrapper').removeClass('select-3'); $('.search-wrapper').addClass('select-2');"></div>
+      <div class="tab-3" onclick="$('.search-wrapper').removeClass('select-2'); $('.search-wrapper').addClass('select-3');"></div>
+    </div>
+
     <div class="search-results">
 
       <div class="search-olegon">
